@@ -16,7 +16,6 @@ public class EmployeeDAO {
 	
 	/*save employee*/
 	public Employee save(Employee emp) {
-		System.out.println("EmployeeDAO.save()");
 		return employeeRepository.save(emp);
 	}
 	
@@ -36,4 +35,5 @@ public class EmployeeDAO {
 	public void delete(Employee emp) {
 		employeeRepository.delete(emp);
 	}
+
 }
