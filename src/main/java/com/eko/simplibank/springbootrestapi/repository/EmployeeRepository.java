@@ -9,6 +9,6 @@ import com.eko.simplibank.springbootrestapi.model.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Long>{
 
-	Optional<List<Employee>> findByName(String empName);
+	List<Employee> findByName(String empName);
 
 }

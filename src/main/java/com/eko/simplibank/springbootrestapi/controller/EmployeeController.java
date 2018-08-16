@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eko.simplibank.springbootrestapi.dao.EmployeeDAO;
 import com.eko.simplibank.springbootrestapi.model.Employee;
 import com.eko.simplibank.springbootrestapi.repository.EmployeeRepository;
 
@@ -47,9 +46,10 @@ public class EmployeeController {
 		
 	// Find by name
 	@GetMapping("/employee-name/{name}")
-	public List<Employee> findByName(@PathVariable (value="name") String empName) {
-		employeeRepository.findByName(empName);
-	 return null;
+	public ResponseEntity<Employee> findByName(@PathVariable (value="name") String empName) {
+		List<Employee> names = employeeRepository.findByName(empName);
+		System.out.println(names);
+	 return ResponseEntity.ok().body(names.get(0));
 	}
 	
 	//Update Employee
